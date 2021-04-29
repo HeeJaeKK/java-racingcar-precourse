@@ -5,3 +5,10 @@
 
 ## 과제 제출 과정
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
+
+## 기능 목록
+* 난수 클래스 생성
+* 자동차 클래스 생성
+* 사용자 입력
+* 우승자 계산
+* 차량 전진 계산
