@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 public class RacingCarTest {
 
     private RacingCar racingCar;
+    private int testCnt = 5;
 
     @BeforeEach
     public void beforeSet() {
@@ -21,5 +22,15 @@ public class RacingCarTest {
     public void generateRacingCarTest() {
         Assertions.assertEquals(new RacingCar("Test").getCarName(),"Test");
         Assertions.assertEquals(new RacingCar("TestCar").getCarName(),"FALSE");
+    }
+
+    @Test
+    public void proceedRaceTest() {
+        String raceTest = "";
+        for(int i=0;i<testCnt;i++) {
+            raceTest += "-";
+            racingCar.proceedRace();
+            Assertions.assertEquals(racingCar.getRace(),raceTest);
+        }
     }
 }

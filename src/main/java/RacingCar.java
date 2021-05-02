@@ -16,4 +16,11 @@ public class RacingCar {
         return carName;
     }
 
+    public String getRace() {
+        return race;
+    }
+
+    public void proceedRace() {
+        this.race += "-";
+    }
 }
