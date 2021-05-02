@@ -1,6 +1,6 @@
 public class RandomNum {
 
-    private int num;
+    private int num = -1;
 
     final static int MAX_RANDOM_NUM = 9;
     final static int MIN_RANDOM_NUM = 0;
@@ -14,7 +14,6 @@ public class RandomNum {
     public RandomNum(int i) {
         if(validateNum(i))
             this.num = i;
-        this.num = -1;
     }
 
     public int getNum() {

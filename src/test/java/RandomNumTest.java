@@ -20,4 +20,12 @@ public class RandomNumTest {
         Assertions.assertFalse(randomNum.validateNum(-1));
     }
 
+    @Test
+    public void randomNumGenerateTest() {
+        Assertions.assertEquals(new RandomNum(9).getNum(),9);
+        Assertions.assertEquals(new RandomNum(0).getNum(),0);
+        Assertions.assertEquals(new RandomNum(10).getNum(),-1);
+        Assertions.assertEquals(new RandomNum(-2).getNum(),-1);
+    }
+
 }
