@@ -14,9 +14,9 @@ public class RacingCalculatorTest {
     @Test
     public void calculateProceedRaceTest() {
         RacingCar racingCar = new RacingCar("Test");
-        racingCalculator.calculateProccedRace(racingCar,4);
+        racingCalculator.calculateProceedRace(racingCar,4);
         Assertions.assertEquals(racingCar.getRace(),"-");
-        racingCalculator.calculateProccedRace(racingCar,3);
+        racingCalculator.calculateProceedRace(racingCar,3);
         Assertions.assertEquals(racingCar.getRace(),"-");
     }
 
@@ -24,11 +24,11 @@ public class RacingCalculatorTest {
     public void calculateWinnerLengthTest() {
         RacingCar racingCarTest1 = new RacingCar("Test1");
         RacingCar racingCarTest2 = new RacingCar("Test2");
-        racingCalculator.calculateProccedRace(racingCarTest1,4);
+        racingCalculator.calculateProceedRace(racingCarTest1,4);
         Assertions.assertEquals(racingCalculator.calculateWinnerLength(new RacingCar[] {racingCarTest1, racingCarTest2}),1);
-        racingCalculator.calculateProccedRace(racingCarTest1,4);
+        racingCalculator.calculateProceedRace(racingCarTest1,4);
         Assertions.assertEquals(racingCalculator.calculateWinnerLength(new RacingCar[] {racingCarTest1, racingCarTest2}),2);
-        racingCalculator.calculateProccedRace(racingCarTest2,4);
+        racingCalculator.calculateProceedRace(racingCarTest2,4);
         Assertions.assertEquals(racingCalculator.calculateWinnerLength(new RacingCar[] {racingCarTest1, racingCarTest2}),2);
     }
 
@@ -36,11 +36,11 @@ public class RacingCalculatorTest {
     public void calculateWinnerTest() {
         RacingCar racingCarTest1 = new RacingCar("Test1");
         RacingCar racingCarTest2 = new RacingCar("Test2");
-        racingCalculator.calculateProccedRace(racingCarTest1,4);
+        racingCalculator.calculateProceedRace(racingCarTest1,4);
         Assertions.assertEquals(racingCalculator.calculateWinner(new RacingCar[] {racingCarTest1, racingCarTest2}),"Test1");
-        racingCalculator.calculateProccedRace(racingCarTest2,4);
+        racingCalculator.calculateProceedRace(racingCarTest2,4);
         Assertions.assertEquals(racingCalculator.calculateWinner(new RacingCar[] {racingCarTest1, racingCarTest2}),"Test1, Test2");
-        racingCalculator.calculateProccedRace(racingCarTest2,4);
+        racingCalculator.calculateProceedRace(racingCarTest2,4);
         Assertions.assertEquals(racingCalculator.calculateWinner(new RacingCar[] {racingCarTest1, racingCarTest2}),"Test2");
     }
 }

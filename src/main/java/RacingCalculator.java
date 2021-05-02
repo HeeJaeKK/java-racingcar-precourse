@@ -2,7 +2,7 @@ import java.util.StringJoiner;
 
 public class RacingCalculator {
 
-    public void calculateProccedRace(RacingCar racingCar, int index) {
+    public void calculateProceedRace(RacingCar racingCar, int index) {
         if(index >= 4)
             racingCar.proceedRace();
     }
