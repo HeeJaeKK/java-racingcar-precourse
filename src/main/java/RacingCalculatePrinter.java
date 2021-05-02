@@ -14,7 +14,7 @@ public class RacingCalculatePrinter {
         System.out.println("");
         System.out.println("실행 결과");
         for(RacingCar racingCar : racingCars)
-            printRacingCar(racingCar);
+            System.out.println(printRacingCar(racingCar));
     }
 
     public void printRacingWinner(RacingCar[] racingCars) {

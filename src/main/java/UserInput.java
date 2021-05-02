@@ -1,8 +1,17 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class UserInput {
+
+    private BufferedReader br;
+
+    public UserInput() {
+        br = new BufferedReader(new InputStreamReader(System.in));
+    }
 
     public RacingCar[] allocateRacingCars(String racingCarNames) {
         List<RacingCar> racingCarList = new ArrayList<>();
@@ -15,12 +24,19 @@ public class UserInput {
         boolean isValidated = true;
         for(RacingCar racingCar : racingCars)
             isValidated = isValidated && !racingCar.getCarName().equals("FALSE");
+        if(!isValidated)
+            System.out.println("자동차 이름의 길이가 제한을 벗어났습니다.");
         return isValidated;
     }
 
     public String read() {
-        Scanner sc = new Scanner(System.in);
-        return sc.next();
+        String input = null;
+        try{
+            input = br.readLine();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return input;
     }
 
     public int compareStr(String[] compareStrArr, String compareStr) {
@@ -35,7 +51,10 @@ public class UserInput {
         int SameCnt = 0;
         for(String str : userInputCarName)
             SameCnt += compareStr(userInputCarName, str);
-        return SameCnt == userInputCarName.length;
+        if(SameCnt == userInputCarName.length)
+            return true;
+        System.out.println("중복된 자동차 이름이 있습니다.");
+        return false;
     }
 
     public RacingCar[] userRacingCarInput() {
@@ -45,7 +64,7 @@ public class UserInput {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             String input = read();
             isValidatedInput = validateCarNameUnique(input);
-            racingCarsInput = allocateRacingCars(read());
+            racingCarsInput = allocateRacingCars(input);
             isValidatedInput = isValidatedInput && validateUserInputCarName(racingCarsInput);
         }
         return racingCarsInput;
