@@ -32,5 +32,15 @@ public class RacingCalculatorTest {
         Assertions.assertEquals(racingCalculator.calculateWinnerLength(new RacingCar[] {racingCarTest1, racingCarTest2}),2);
     }
 
-
+    @Test
+    public void calculateWinnerTest() {
+        RacingCar racingCarTest1 = new RacingCar("Test1");
+        RacingCar racingCarTest2 = new RacingCar("Test2");
+        racingCalculator.calculateProccedRace(racingCarTest1,4);
+        Assertions.assertEquals(racingCalculator.calculateWinner(new RacingCar[] {racingCarTest1, racingCarTest2}),"Test1");
+        racingCalculator.calculateProccedRace(racingCarTest2,4);
+        Assertions.assertEquals(racingCalculator.calculateWinner(new RacingCar[] {racingCarTest1, racingCarTest2}),"Test1, Test2");
+        racingCalculator.calculateProccedRace(racingCarTest2,4);
+        Assertions.assertEquals(racingCalculator.calculateWinner(new RacingCar[] {racingCarTest1, racingCarTest2}),"Test2");
+    }
 }
