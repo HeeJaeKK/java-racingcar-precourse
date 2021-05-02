@@ -5,12 +5,17 @@ import org.junit.jupiter.api.Test;
 public class RandomNumGeneratorTest {
 
     private RandomNumGenerator randomNumGenerator;
-    private int randomNumTest;
 
     @BeforeEach
     public void beforeSet() {
         randomNumGenerator = new RandomNumGenerator();
-        randomNumTest = randomNumGenerator.getRandomNum();
+    }
+
+    @Test
+    public void randomNumGenerateTest() {
+        int testCnt = 10;
+        for(int i=0;i<testCnt;i++)
+            Assertions.assertNotEquals(new RandomNum(9).getNum(), -1);
     }
 
 }

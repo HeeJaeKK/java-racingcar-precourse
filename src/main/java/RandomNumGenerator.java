@@ -1,6 +1,18 @@
+import java.util.Random;
+
 public class RandomNumGenerator {
 
-    public int getRandomNum() {
-        return 1;
+    private Random random;
+
+    public RandomNumGenerator() {
+        random = new Random();
     }
+
+    public int generateRandomNum() {
+        int randomNum = new RandomNum(random.nextInt(9)).getNum();
+        if (randomNum != -1)
+            return randomNum;
+        return -1;
+    }
+
 }
