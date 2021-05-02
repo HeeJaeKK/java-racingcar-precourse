@@ -1,10 +1,12 @@
 public class RacingCar {
 
+    final static int MAX_NAME_LENGTH = 5;
+
     private String carName = "FALSE";
     private String race = "";
 
     public boolean validateCar(String carName) {
-        return carName.length() <= 5;
+        return carName.length() <= MAX_NAME_LENGTH;
     }
 
     public RacingCar(String carName) {
