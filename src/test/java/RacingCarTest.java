@@ -16,6 +16,7 @@ public class RacingCarTest {
     public void validateLength() {
         Assertions.assertTrue(racingCar.validateCar("Test"));
         Assertions.assertFalse(racingCar.validateCar("Example"));
+        Assertions.assertFalse(racingCar.validateCar(""));
     }
 
     @Test
