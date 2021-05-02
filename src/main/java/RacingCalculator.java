@@ -2,8 +2,10 @@ import java.util.StringJoiner;
 
 public class RacingCalculator {
 
+    final static int PROCEED_DISTINGUISH_NUM = 4;
+
     public void calculateProceedRace(RacingCar racingCar, int index) {
-        if(index >= 4)
+        if(index >= PROCEED_DISTINGUISH_NUM)
             racingCar.proceedRace();
     }
 
