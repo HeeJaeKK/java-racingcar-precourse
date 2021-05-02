@@ -20,4 +20,17 @@ public class RacingCalculatorTest {
         Assertions.assertEquals(racingCar.getRace(),"-");
     }
 
+    @Test
+    public void calculateWinnerLengthTest() {
+        RacingCar racingCarTest1 = new RacingCar("Test1");
+        RacingCar racingCarTest2 = new RacingCar("Test2");
+        racingCalculator.calculateProccedRace(racingCarTest1,4);
+        Assertions.assertEquals(racingCalculator.calculateWinnerLength(new RacingCar[] {racingCarTest1, racingCarTest2}),1);
+        racingCalculator.calculateProccedRace(racingCarTest1,4);
+        Assertions.assertEquals(racingCalculator.calculateWinnerLength(new RacingCar[] {racingCarTest1, racingCarTest2}),2);
+        racingCalculator.calculateProccedRace(racingCarTest2,4);
+        Assertions.assertEquals(racingCalculator.calculateWinnerLength(new RacingCar[] {racingCarTest1, racingCarTest2}),2);
+    }
+
+
 }
