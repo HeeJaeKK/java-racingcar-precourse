@@ -35,4 +35,10 @@ public class UserInputTest {
         Assertions.assertTrue(userInput.validateUserInputTryNum("10"));
         Assertions.assertFalse(userInput.validateUserInputTryNum("dfa"));
     }
+
+    @Test
+    public void validateUserInputCarNameUnique() {
+        Assertions.assertTrue(userInput.validateCarNameUnique("test1,test2,test3"));
+        Assertions.assertFalse(userInput.validateCarNameUnique("test1,test2,test1"));
+    }
 }

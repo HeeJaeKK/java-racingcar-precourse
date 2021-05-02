@@ -23,13 +23,30 @@ public class UserInput {
         return sc.next();
     }
 
+    public int compareStr(String[] compareStrArr, String compareStr) {
+        int SameCnt = 0;
+        for(String str : compareStrArr)
+            SameCnt += str.equals(compareStr) ? 1 : 0;
+        return SameCnt;
+    }
+
+    public boolean validateCarNameUnique(String userInput) {
+        String[] userInputCarName = userInput.split(",");
+        int SameCnt = 0;
+        for(String str : userInputCarName)
+            SameCnt += compareStr(userInputCarName, str);
+        return SameCnt == userInputCarName.length;
+    }
+
     public RacingCar[] userRacingCarInput() {
         boolean isValidatedInput = false;
         RacingCar[] racingCarsInput = new RacingCar[] {};
         while(!isValidatedInput) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            String input = read();
+            isValidatedInput = validateCarNameUnique(input);
             racingCarsInput = allocateRacingCars(read());
-            isValidatedInput = validateUserInputCarName(racingCarsInput);
+            isValidatedInput = isValidatedInput && validateUserInputCarName(racingCarsInput);
         }
         return racingCarsInput;
     }
