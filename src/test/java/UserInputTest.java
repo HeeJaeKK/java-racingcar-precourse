@@ -26,5 +26,7 @@ public class UserInputTest {
         Assertions.assertTrue(userInput.validateUserInput(new RacingCar[] {racingCarTest1, racingCarTest2}));
         RacingCar racingCarTest3 = new RacingCar("Test123");
         Assertions.assertFalse(userInput.validateUserInput(new RacingCar[] {racingCarTest1, racingCarTest2, racingCarTest3}));
+        RacingCar racingCarTest4 = new RacingCar("");
+        Assertions.assertFalse(userInput.validateUserInput(new RacingCar[] {racingCarTest1, racingCarTest2, racingCarTest4}));
     }
 }
