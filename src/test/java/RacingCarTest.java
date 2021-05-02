@@ -8,12 +8,18 @@ public class RacingCarTest {
 
     @BeforeEach
     public void beforeSet() {
-        racingCar = new RacingCar();
+        racingCar = new RacingCar("Test");
     }
 
     @Test
     public void validateLength() {
         Assertions.assertTrue(racingCar.validateCar("Test"));
         Assertions.assertFalse(racingCar.validateCar("Example"));
+    }
+
+    @Test
+    public void generateRacingCarTest() {
+        Assertions.assertEquals(new RacingCar("Test").getCarName(),"Test");
+        Assertions.assertEquals(new RacingCar("TestCar").getCarName(),"FALSE");
     }
 }
