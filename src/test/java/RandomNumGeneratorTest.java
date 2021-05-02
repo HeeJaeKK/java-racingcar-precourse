@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 public class RandomNumGeneratorTest {
 
     private RandomNumGenerator randomNumGenerator;
+    private int TestCnt = 10;
 
     @BeforeEach
     public void beforeSet() {
@@ -13,9 +14,15 @@ public class RandomNumGeneratorTest {
 
     @Test
     public void randomNumGenerateTest() {
-        int testCnt = 10;
-        for(int i=0;i<testCnt;i++)
-            Assertions.assertNotEquals(new RandomNum(9).getNum(), -1);
+        for(int i=0;i<TestCnt;i++)
+            Assertions.assertNotEquals(randomNumGenerator.generateRandomNum(), -1);
     }
 
+    @Test
+    public void validateNumRandomlyGenerated() {
+        boolean isUnique = true;
+        for(int i=0;i<TestCnt;i++)
+            isUnique = isUnique && randomNumGenerator.generateRandomNum() == randomNumGenerator.generateRandomNum();
+        Assertions.assertFalse(isUnique);
+    }
 }
