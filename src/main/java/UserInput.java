@@ -10,4 +10,11 @@ public class UserInput {
         return racingCarList.toArray(new RacingCar[0]);
     }
 
+    public boolean validateUserInput(RacingCar[] racingCars) {
+        boolean isValidated = true;
+        for(RacingCar racingCar : racingCars)
+            isValidated = isValidated && !racingCar.getCarName().equals("FALSE");
+        return isValidated;
+    }
+
 }
