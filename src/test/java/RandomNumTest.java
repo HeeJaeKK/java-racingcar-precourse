@@ -8,7 +8,8 @@ public class RandomNumTest {
 
     @BeforeEach
     public void beforeSet() {
-        randomNum = new RandomNum(1);
+        int testNum = 1;
+        randomNum = new RandomNum(testNum);
     }
 
     @Test
@@ -18,4 +19,5 @@ public class RandomNumTest {
         Assertions.assertFalse(randomNum.validateNum(10));
         Assertions.assertFalse(randomNum.validateNum(-1));
     }
+
 }
