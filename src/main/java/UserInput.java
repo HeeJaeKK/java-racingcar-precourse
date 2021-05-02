@@ -27,7 +27,7 @@ public class UserInput {
         boolean isValidatedInput = false;
         RacingCar[] racingCarsInput = new RacingCar[] {};
         while(!isValidatedInput) {
-            System.out.println("asd");
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             racingCarsInput = allocateRacingCars(read());
             isValidatedInput = validateUserInputCarName(racingCarsInput);
         }
@@ -38,6 +38,7 @@ public class UserInput {
         try {
             int convertInteger = Integer.parseInt(userInputTryNum);
         } catch(Exception e) {
+            System.out.println("숫자를 다시 입력해주세요.");
             return false;
         }
         return true;
@@ -47,7 +48,7 @@ public class UserInput {
         boolean isValidatedInput = false;
         int userTryNum = -1;
         while(!isValidatedInput) {
-            System.out.println("fgh");
+            System.out.println("시도할 횟수는 몇회인가요?");
             String input = read();
             isValidatedInput = validateUserInputTryNum(input);
             userTryNum = Integer.parseInt(input);
