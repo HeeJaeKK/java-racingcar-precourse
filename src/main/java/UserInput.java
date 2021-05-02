@@ -43,4 +43,16 @@ public class UserInput {
         return true;
     }
 
+    public int userTryNumInput() {
+        boolean isValidatedInput = false;
+        int userTryNum = -1;
+        while(!isValidatedInput) {
+            System.out.println("fgh");
+            String input = read();
+            isValidatedInput = validateUserInputTryNum(input);
+            userTryNum = Integer.parseInt(input);
+        }
+        return userTryNum;
+    }
+
 }
