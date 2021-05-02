@@ -1,9 +1,19 @@
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RacingCarTest {
 
-    @Test
+    private RacingCar racingCar;
+
+    @BeforeEach
     public void beforeSet() {
-        RacingCar racingCar = new RacingCar();
+        racingCar = new RacingCar();
+    }
+
+    @Test
+    public void validateLength() {
+        Assertions.assertTrue(racingCar.validateCar("Test"));
+        Assertions.assertFalse(racingCar.validateCar("Example"));
     }
 }
