@@ -12,21 +12,21 @@ public class Game {
         racingCalculatePrinter = new RacingCalculatePrinter();
     }
 
-    public void runGameStage(RacingCar[] racingCars) {
-        for (RacingCar racingCar : racingCars) {
+    public void runGameStage(RacingCars racingCars) {
+        for (int i=0;i<racingCars.getRacingCars().length;i++) {
             int randomNum = this.randomNumGenerator.generateRandomNum();
-            this.racingCalculator.calculateProceedRace(racingCar, randomNum);
+            this.racingCalculator.calculateProceedRace(racingCars.getRacingCar(i), randomNum);
         }
-        racingCalculatePrinter.printRacingCars(racingCars);
+        racingCalculatePrinter.printRacingCars(racingCars.getRacingCars());
     }
 
     public static void main(String[] args) {
         Game game = new Game();
-        RacingCar[] racingCars = game.userInput.userRacingCarInput();
+        RacingCars racingCars = game.userInput.userRacingCarInput();
         int gameStageCnt = game.userInput.userTryNumInput();
         for(int i=0;i<gameStageCnt;i++) {
             game.runGameStage(racingCars);
         }
-        game.racingCalculatePrinter.printRacingWinner(racingCars);
+        game.racingCalculatePrinter.printRacingWinner(racingCars.getRacingCars());
     }
 }
