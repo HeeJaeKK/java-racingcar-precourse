@@ -1,18 +1,37 @@
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCars {
 
+    final static String SEPERATOR = ",";
 
     private List<RacingCar> racingCarList = new ArrayList<>();
     private boolean racingCarsAvail = true;
 
     public RacingCars(String inputCars) {
-        for (String racingCarName : inputCars.split(","))
+        for (String racingCarName : inputCars.split(SEPERATOR))
             racingCarList.add(new RacingCar(racingCarName));
+        validateRacingCars(inputCars);
+    }
+
+    private void validateRacingCars(String inputCars) {
         validateCarNameLength();
         validateCarNameUnique();
+        validateCarSize(inputCars);
+    }
+
+    public void validateCarSize(String inputCars) {
+        if(stringCount(inputCars) == this.racingCarList.size() - 1)
+            return;
+        System.out.println(",를 형식에 맞게 찍어주세요.");
+        this.racingCarsAvail = false;
+    }
+
+    private int stringCount(String inputCars) {
+        int strCnt = 0;
+        for(int i=0;i<inputCars.length();i++)
+            strCnt += SEPERATOR.equals(inputCars.charAt(i) + "") ? 1 : 0;
+        return strCnt;
     }
 
     public void validateCarNameLength() {

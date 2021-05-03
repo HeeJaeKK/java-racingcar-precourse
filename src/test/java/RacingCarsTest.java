@@ -32,4 +32,11 @@ public class RacingCarsTest {
         Assertions.assertFalse(racingCarsTest.isRacingCarsAvail());
     }
 
+    @Test
+    public void validateRacingCarsSize() {
+        Assertions.assertTrue(racingCars.isRacingCarsAvail());
+        RacingCars racingCarsTest = new RacingCars(",,,");
+        Assertions.assertFalse(racingCarsTest.isRacingCarsAvail());
+    }
+
 }
