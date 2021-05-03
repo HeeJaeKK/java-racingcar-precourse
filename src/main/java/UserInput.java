@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class UserInput {
 
@@ -39,22 +38,27 @@ public class UserInput {
         return input;
     }
 
-    public int compareStr(String[] compareStrArr, String compareStr) {
+    public int compareStr(RacingCar[] racingCars, String compareStr) {
         int SameCnt = 0;
-        for(String str : compareStrArr)
-            SameCnt += str.equals(compareStr) ? 1 : 0;
+        for(RacingCar racingCar : racingCars)
+            SameCnt += racingCar.getCarName().equals(compareStr) ? 1 : 0;
         return SameCnt;
     }
 
-    public boolean validateCarNameUnique(String userInput) {
-        String[] userInputCarName = userInput.split(",");
+    public boolean validateCarNameUnique(RacingCar[] racingCars) {
         int SameCnt = 0;
-        for(String str : userInputCarName)
-            SameCnt += compareStr(userInputCarName, str);
-        if(SameCnt == userInputCarName.length)
+        for(RacingCar racingCar : racingCars)
+            SameCnt += compareStr(racingCars, racingCar.getCarName());
+        if(SameCnt == racingCars.length)
             return true;
         System.out.println("중복된 자동차 이름이 있습니다.");
         return false;
+    }
+
+    public boolean validateUserCarInput(RacingCar[] racingCars) {
+        if(!validateUserInputCarName(racingCars))
+            return false;
+        return true;
     }
 
     public RacingCar[] userRacingCarInput() {
@@ -62,17 +66,15 @@ public class UserInput {
         RacingCar[] racingCarsInput = new RacingCar[] {};
         while(!isValidatedInput) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-            String input = read();
-            isValidatedInput = validateCarNameUnique(input);
-            racingCarsInput = allocateRacingCars(input);
-            isValidatedInput = isValidatedInput && validateUserInputCarName(racingCarsInput);
+            racingCarsInput = allocateRacingCars(read());
+            isValidatedInput = validateUserCarInput(racingCarsInput);
         }
         return racingCarsInput;
     }
 
     public boolean validateUserInputTryNum(String userInputTryNum) {
         try {
-            int convertInteger = Integer.parseInt(userInputTryNum);
+            Integer.parseInt(userInputTryNum);
         } catch(Exception e) {
             System.out.println("숫자를 다시 입력해주세요.");
             return false;

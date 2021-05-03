@@ -38,7 +38,10 @@ public class UserInputTest {
 
     @Test
     public void validateUserInputCarNameUnique() {
-        Assertions.assertTrue(userInput.validateCarNameUnique("test1,test2,test3"));
-        Assertions.assertFalse(userInput.validateCarNameUnique("test1,test2,test1"));
+        RacingCar racingCarTest1 = new RacingCar("Test1");
+        RacingCar racingCarTest2 = new RacingCar("Test2");
+        Assertions.assertTrue(userInput.validateCarNameUnique(new RacingCar[] {racingCarTest1, racingCarTest2}));
+        RacingCar racingCarTest3 = new RacingCar("Test2");
+        Assertions.assertFalse(userInput.validateCarNameUnique(new RacingCar[] {racingCarTest1, racingCarTest2, racingCarTest3}));
     }
 }
