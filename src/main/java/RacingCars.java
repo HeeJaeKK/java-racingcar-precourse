@@ -4,11 +4,16 @@ import java.util.List;
 public class RacingCars {
 
     final static String SEPERATOR = ",";
+    final static String INITIALIZER = "Initializer";
 
     private List<RacingCar> racingCarList = new ArrayList<>();
     private boolean racingCarsAvail = true;
 
     public RacingCars(String inputCars) {
+        if(inputCars.equals(INITIALIZER)) {
+            racingCarsAvail = false;
+            return;
+        }
         for (String racingCarName : inputCars.split(SEPERATOR))
             racingCarList.add(new RacingCar(racingCarName));
         validateRacingCars(inputCars);
@@ -64,5 +69,9 @@ public class RacingCars {
 
     public boolean isRacingCarsAvail() {
         return racingCarsAvail;
+    }
+
+    public RacingCar[] getRacingCars() {
+        return racingCarList.toArray(new RacingCar[0]);
     }
 }

@@ -39,4 +39,10 @@ public class RacingCarsTest {
         Assertions.assertFalse(racingCarsTest.isRacingCarsAvail());
     }
 
+    @Test
+    public void validateInitialzer() {
+        RacingCars racingCarsTest = new RacingCars("Initializer");
+        Assertions.assertFalse(racingCarsTest.isRacingCarsAvail());
+    }
+
 }
