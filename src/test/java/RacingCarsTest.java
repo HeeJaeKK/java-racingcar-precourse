@@ -18,4 +18,11 @@ public class RacingCarsTest {
         Assertions.assertEquals(racingCars.getRacingCar(2).getCarName(),"Test3");
     }
 
+    @Test
+    public void validateRacingCarsUnique() {
+        Assertions.assertTrue(racingCars.isRacingCarsAvail());
+        RacingCars racingCarsTest = new RacingCars("Test1,Test1234");
+        Assertions.assertFalse(racingCarsTest.isRacingCarsAvail());
+    }
+
 }
