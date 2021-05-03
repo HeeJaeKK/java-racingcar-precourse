@@ -12,14 +12,6 @@ public class UserInputTest {
     }
 
     @Test
-    public void allocateRacingCarsTest() {
-        RacingCar[] racingCars = userInput.allocateRacingCars("Test1,Test2,Test123");
-        Assertions.assertEquals(racingCars[0].getCarName(),"Test1");
-        Assertions.assertEquals(racingCars[1].getCarName(),"Test2");
-        Assertions.assertEquals(racingCars[2].getCarName(),"FALSE");
-    }
-
-    @Test
     public void validateUserInputCarNameTest() {
         RacingCar racingCarTest1 = new RacingCar("Test1");
         RacingCar racingCarTest2 = new RacingCar("Test2");
