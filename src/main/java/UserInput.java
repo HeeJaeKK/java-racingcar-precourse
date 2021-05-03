@@ -55,8 +55,10 @@ public class UserInput {
         return false;
     }
 
-    public boolean validateUserCarInput(RacingCar[] racingCars) {
+    public boolean validateUserCarInput(RacingCar[] racingCars, String userInput) {
         if(!validateUserInputCarName(racingCars))
+            return false;
+        if(!validateCarNameUnique(racingCars))
             return false;
         return true;
     }
@@ -66,8 +68,9 @@ public class UserInput {
         RacingCar[] racingCarsInput = new RacingCar[] {};
         while(!isValidatedInput) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-            racingCarsInput = allocateRacingCars(read());
-            isValidatedInput = validateUserCarInput(racingCarsInput);
+            String input = read();
+            racingCarsInput = allocateRacingCars(input);
+            isValidatedInput = validateUserCarInput(racingCarsInput, input);
         }
         return racingCarsInput;
     }
