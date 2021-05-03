@@ -19,9 +19,16 @@ public class RacingCarsTest {
     }
 
     @Test
-    public void validateRacingCarsUnique() {
+    public void validateRacingCarsLength() {
         Assertions.assertTrue(racingCars.isRacingCarsAvail());
         RacingCars racingCarsTest = new RacingCars("Test1,Test1234");
+        Assertions.assertFalse(racingCarsTest.isRacingCarsAvail());
+    }
+
+    @Test
+    public void validateRacingCarsUnique() {
+        Assertions.assertTrue(racingCars.isRacingCarsAvail());
+        RacingCars racingCarsTest = new RacingCars("Test1,Test1");
         Assertions.assertFalse(racingCarsTest.isRacingCarsAvail());
     }
 
